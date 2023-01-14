@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f89b8c369e81478ab413c76fdaa3aeaa" Name="Diagram1">
+        <EntityTypeShape EntityType="proyectofinalprogModel.Departamentos" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="proyectofinalprogModel.Empleados" Width="1.5" PointX="2.875" PointY="3.25" />
+        <AssociationConnector Association="proyectofinalprogModel.FK_ID_DEP_EMPLEADO" />
+        <EntityTypeShape EntityType="proyectofinalprogModel.viewEmpleados" Width="1.5" PointX="5.125" PointY="4.375" />
+        <EntityTypeShape EntityType="proyectofinalprogModel.Documentos" Width="1.5" PointX="5" PointY="1.25" />
+        <AssociationConnector Association="proyectofinalprogModel.FK_ID_DEPDEST_DOCUMEN" />
+        <AssociationConnector Association="proyectofinalprogModel.FK_ID_DEPEMP_DOCUMEN" />
+        <AssociationConnector Association="proyectofinalprogModel.FK_ID_EMP_DOCUMEN" />
+        <EntityTypeShape EntityType="proyectofinalprogModel.viewDocumento" Width="1.5" PointX="7.125" PointY="1.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

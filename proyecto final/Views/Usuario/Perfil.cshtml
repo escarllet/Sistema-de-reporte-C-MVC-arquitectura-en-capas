@@ -1,0 +1,429 @@
+﻿@model CapaEntidad.Empleados
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        Perfil
+    </title>
+    <!-- Favicon -->
+    <link href="~/Content/assets/img/brand/favicon.png" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="~/Content/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+    <link href="~/Content/assets/js/plugins/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="~/Content/assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
+    <!-- CSS MESSAGE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+</head>
+
+<body class="">
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+        <div class="container-fluid">
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Brand -->
+            <a class="navbar-brand pt-0" href="../index.html">
+                <img src="~/Content/assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            </a>
+            <!-- User -->
+            <ul class="nav align-items-center d-md-none">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="~/Content/assets/img/theme/team-1-800x800.jpg">
+                                <!-- AQUI VA IMAGEN DEL USER -->
+                            </span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                        <div class=" dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Welcome!</h6>
+                        </div>
+                        <a href="@Url.Action("Perfil","Usuario")" class="dropdown-item">
+                            <i class="ni ni-single-02"></i>
+                            <span>Mi perfil</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="@Url.Action("login","Usuario")" class="dropdown-item">
+                            <i class="ni ni-user-run"></i>
+                            <span>Cerrar sesion</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                <!-- Collapse header -->
+                <div class="navbar-collapse-header d-md-none">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="../index.html">
+                                <img src="~/Content/assets/img/brand/blue.png">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Form -->
+                <!-- Navigation -->
+                <ul class="navbar-nav">
+                    <li class="nav-item  ">
+                        <a class="nav-link" href="@Url.Action("Index","Inicio")">
+                            <i class="ni ni-tv-2 text-primary"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#">
+                            <i class="ni ni-single-02 text-yellow"></i> Perfil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("CrearDep","Departamentos")">
+                            <i class="ni ni-bullet-list-67 text-red"></i> Crear Departamentos
+                        </a>
+                    </li>
+
+                </ul>
+                <!-- Divider -->
+                <hr class="my-3">
+                <h6 class="navbar-heading text-muted">Reportes</h6>
+                <ul class="navbar-nav mb-md-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Departamentos","Departamentos") ">
+                            <i class="ni ni-single-copy-04 text-primary"></i> Reporte de Departamentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("UsuariosReporte","Usuario") ">
+                            <i class="ni ni-badge text-primary"></i> Reporte de usuarios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="@Url.Action("CrearDocumento","Documentos") ">
+                            <i class="ni ni-folder-17 text-primary"></i> Crear Reporte de documentos
+                        </a>
+                    </li>
+                </ul>
+                <!-- Divider -->
+                <hr class="my-3">
+                <h6 class="navbar-heading text-muted">Reporte de Documentos</h6>
+                <ul class="navbar-nav mb-md-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("TodosDocumentos","Documentos")">
+                            <i class="ni ni-archive-2 text-info"></i> Todos los documentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("BuscarReporte","Documentos")">
+                            <i class="ni ni-bulb-61 text-info"></i> Buscar Reporte por...
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="#">Perfil de usuario</a>
+                <!-- Form -->
+                <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+                </form>
+                <!-- User -->
+                <ul class="navbar-nav align-items-center d-none d-md-flex">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="media align-items-center">
+
+                                <div class="media-body ml-2 d-none d-lg-block">
+                                    <span class="mb-0 text-sm  font-weight-bold"> @CapaEntidad.misVariables.correo</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                            <div class=" dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Bienvenido/a!</h6>
+                            </div>
+                            <a href="#" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>Mi perfil</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="@Url.Action("login","Usuario")" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <span>Cerrar sesion</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <!-- Header -->
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+            <!-- Mask -->
+            <span class="mask bg-gradient-default opacity-8"></span>
+            <!-- Header container -->
+            <div class="container-fluid d-flex align-items-center">
+                <div class="row">
+                    <div class="col-lg-7 col-md-10">
+                        <h1 class="display-2 text-white">Hola!</h1>
+                        <p class="text-white mt-0 mb-5">Aqui puedes ver tu informacion y modificalas o completarlas.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container-fluid mt--7">
+                <div class="row">
+                    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                        <div class="card card-profile shadow">
+
+                            <div class="card-body pt-0 pt-md-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => model.id)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <h3>
+                                        @Html.DisplayFor(model => model.nombre) @Html.DisplayFor(model => model.apellido)<span class="font-weight-light"></span>
+                                    </h3>
+                                    <div class="h5 font-weight-300">
+                                        <i class="ni location_pin mr-2"></i>@Html.DisplayFor(model => model.ciudad), Republica Dominicana
+                                    </div>
+                                    <div class="h5 mt-4">
+                                        <i class="ni business_briefcase-24 mr-2"></i>@Html.DisplayFor(model => model.cargo) - @CapaEntidad.misVariables.nombreDEP
+                                    </div>
+                                    <div>
+                                        <i class="ni education_hat mr-2"></i>Capicua Enterprise
+                                    </div>
+                                    <hr class="my-4" />
+                                    <p></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 order-xl-1">
+                        <div class="card bg-secondary shadow">
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">Mi cuenta</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <h6 class="heading-small text-muted mb-4">Informacion de usuario</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-username">Nombre de usuario</label>
+                                                    @Html.EditorFor(model => model.nombreUsuario, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+
+                                                    @Html.ValidationMessageFor(model => model.nombreUsuario, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-email">Email</label>
+                                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+
+                                                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-first-name">Nombre</label>
+                                                    @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+                                                    @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-last-name">Apellidos</label>
+
+                                                    @Html.EditorFor(model => model.apellido, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+                                                    @Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-first-name">Cargo</label>
+                                                    @Html.EditorFor(model => model.cargo, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+                                                    @Html.ValidationMessageFor(model => model.cargo, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-last-name">Contraseña</label>
+                                                    @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+
+                                                    @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="my-4" />
+                                    <!-- Address -->
+                                    <h6 class="heading-small text-muted mb-4">Informacion de contacto</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-address">Direccion</label>
+                                                    @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+
+                                                    @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-city">Provincia</label>
+                                                    @Html.EditorFor(model => model.provincia, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+
+                                                    @Html.ValidationMessageFor(model => model.provincia, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-country">Sector</label>
+                                                    @Html.EditorFor(model => model.ciudad, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+
+                                                    @Html.ValidationMessageFor(model => model.ciudad, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-country">ZIP</label>
+                                                    @Html.EditorFor(model => model.zipcode, new { htmlAttributes = new { @class = "form-control form-control-alternative" } })
+                                                    @Html.ValidationMessageFor(model => model.zipcode, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-4" />
+                                    <!-- Description -->
+                                    <div class="container-fluid d-flex align-items-center">
+                                        <div class="row">
+                                            <div class="col-lg-7 col-md-10">
+                                                <input type="submit" value="Actualizar Perfil" class="btn btn-info" />
+
+                                            </div> <!-- AQUI SE MODIFICA EL PERFIL -->
+                                            <div class="col-lg-3 col-md-4">
+
+                                                <a class="btn btn-warning" onclick="EliminarUsuario(@CapaEntidad.misVariables.id)">Eliminar Cuenta</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+
+            </div>
+        }
+    </div>
+    <!--   Core   -->
+    <script src="~/Content/assets/js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!--   Optional JS   -->
+    <!--   Argon JS   -->
+    <script src="~/Content/assets/js/argon-dashboard.min.js?v=1.1.2"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script>
+        window.TrackJS &&
+            TrackJS.install({
+                token: "ee6fab19c5a04ac1a32a645abde4613a",
+                application: "argon-dashboard-free"
+            });</script>
+
+    <script>
+        function EliminarUsuario(id) {
+            $.confirm({
+                title: 'Eliminar Usuario',
+                content: 'Seguro que desea Eliminar?, sera redireccionado al login si elimina su cuenta actual',
+                buttons: {
+                    Confirmar: function () {
+
+                        $.ajax({
+                            url: "/Usuario/EliminarUsuario",
+                            type: "post",
+                            data: { identificador: id }
+
+                        }).done(function (response) {
+                            console.log(response);
+
+                            if (response.ok) {
+                                $.alert("Usuario Eliminado Correctamente");
+                                window.location = response.toRedirect;
+                            } else {
+
+                                $.alert("Recuerde que no puede eliminar un Usuario con Documentos afiliados a el: " + response.msg);
+                            }
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            $.alert(textStatus);
+
+                        });
+
+                    },
+                    Cancelar: function () {
+                        // $.alert('El usuario a cancelado la Eliminacion');
+                    },
+                    /*somethingElse: {
+                        text: 'Something else',
+                        btnClass: 'btn-blue',
+                        keys: ['enter', 'shift'],
+                        action: function(){
+                            $.alert('Something else?');
+                        }
+                    }*/
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
